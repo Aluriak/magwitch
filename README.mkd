@@ -20,10 +20,10 @@ assert save_figure.not_in_png() is False
 save_figure.not_in_png.no_legend()
 
 # The last set is autoritative
-assert f.not_in_png.in_png() is True
+assert save_figure.not_in_png.in_png() is True
 
 # And there is many other options if you want to !
-@magwitch.on_with(use_defaults=True, enable='do_', disable=('nope_', 'never_'):
+@magwitch.on_with(use_defaults=True, enable='do_', disable=('nope_', 'never_'))
 def f(a:bool=False): return a
 
 # effect of use_defaults
