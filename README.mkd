@@ -1,0 +1,39 @@
+# Magwitch
+The magical switch switcher !
+
+```python
+import magwitch
+
+@magwitch.on
+def save_figure(in_png:bool=False, legend:bool=True):
+    ...  # an implementation we do not care about for the example
+    return in_png
+
+
+# Now, you can set the value of the boolean arguments by giving their name:
+assert save_figure.in_png() is True
+
+# Or not:
+assert save_figure.not_in_png() is False
+
+# Also, you can do it multiple times:
+save_figure.not_in_png.no_legend()
+
+# The last set is autoritative
+assert f.not_in_png.in_png() is True
+
+# And there is many other options if you want to !
+@magwitch.on_with(use_defaults=True, enable='do_', disable=('nope_', 'never_'):
+def f(a:bool=False): return a
+
+# effect of use_defaults
+assert f.do_a() is False
+```
+
+See the [tests](test/) for complete API, and the docstring of `Magwitch.build`
+for a description of all available parameters.
+
+
+Install with
+
+    pip install magwitch
